@@ -1,3 +1,6 @@
+<?php include "db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -256,22 +259,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Доброе сердце</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Проекты</a></li>
-                    <li><a href="#">Как помочь</a></li>
-                    <li><a href="#">Контакты</a></li>
-                    <li><a href="login.html">Выйти</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
+    <?php include "header.php"; ?>    
     <main class="container">
         <h1>Личный кабинет</h1>
         

@@ -1,3 +1,6 @@
+<?php include "db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -34,37 +37,6 @@
             width: 85%;
             max-width: 1200px;
             margin: 0 auto;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--h1-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--h1-color);
         }
         
         h1 {
@@ -197,32 +169,7 @@
         
         .btn:hover {
             background-color: #e67a3a;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-        
-        .footer-links li {
-            margin: 0 1rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
+        }       
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -240,21 +187,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Доброе сердце</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="projects.php" class="active">Проекты</a></li>
-                    <li><a href="#">Как помочь</a></li>
-                    <li><a href="login.php">Личный кабинет</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
+<?php include "header.php"; ?>
     <main>
         <div class="container">
             <h1>Наши проекты</h1>
@@ -408,21 +341,6 @@
         </div>
     </main>
     
-    <footer>
-        <div class="container">
-            <div class="logo">Доброе сердце</div>
-            <p>Благотворительный фонд помощи нуждающимся</p>
-            
-            <ul class="footer-links">
-                <li><a href="#">О нас</a></li>
-                <li><a href="projects.html">Проекты</a></li>
-                <li><a href="#">Отчеты</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-            </ul>
-            
-            <p>© 2023 Благотворительный фонд "Доброе сердце". Все права защищены.</p>
-        </div>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 </html>

@@ -1,3 +1,6 @@
+<?php include "db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -21,48 +24,11 @@
             line-height: 1.6;
             background-color: var(--light-bg);
         }
-        
-        header {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-        }
-        
+                
         .container {
             width: 85%;
             max-width: 1200px;
             margin: 0 auto;
-        }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--h1-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--h1-color);
         }
         
         h1 {
@@ -132,14 +98,6 @@
             text-decoration: underline;
         }
         
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -156,22 +114,8 @@
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Доброе сердце</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Проекты</a></li>
-                    <li><a href="#">Как помочь</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
+<?php include "header.php";?> 
+<body>    
     <main>
         <div class="container">
             <h1>Вход в личный кабинет</h1>
@@ -199,12 +143,6 @@
         </div>
     </main>
     
-    <footer>
-        <div class="container">
-            <div class="logo">Доброе сердце</div>
-            <p>Благотворительный фонд помощи нуждающимся</p>
-            <p>© 2023 Благотворительный фонд "Доброе сердце". Все права защищены.</p>
-        </div>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 </html>

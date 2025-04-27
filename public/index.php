@@ -1,3 +1,6 @@
+<?php include "db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -20,53 +23,13 @@
             color: var(--text-color);
             line-height: 1.6;
         }
-        
-        header {
-            background-color: white;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        
+                
         .container {
             width: 85%;
             max-width: 1200px;
             margin: 0 auto;
         }
-        
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--h1-color);
-        }
-        
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-        
-        .nav-links li {
-            margin-left: 2rem;
-        }
-        
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        
-        .nav-links a:hover {
-            color: var(--h1-color);
-        }
-        
+                
         h1 {
             color: var(--h1-color);
             font-size: 2.5rem;
@@ -143,6 +106,9 @@
         
         .project-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            
         }
         
         .how-to-help {
@@ -168,32 +134,7 @@
             font-size: 2.5rem;
             color: var(--h1-color);
             margin-bottom: 1rem;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-        }
-        
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            padding: 0;
-            margin: 1rem 0;
-        }
-        
-        .footer-links li {
-            margin: 0 1rem;
-        }
-        
-        .footer-links a {
-            color: white;
-            text-decoration: none;
-        }
-        
+        }        
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -215,21 +156,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Доброе сердце</div>
-                <ul class="nav-links">
-                    <li><a href="#">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Проекты</a></li>
-                    <li><a href="#">Как помочь</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
+<?php include "header.php";?> 
     <section class="hero">
         <div class="container">
             <div class="hero-content">
@@ -283,7 +210,7 @@
         </div>
     </section>
     
-    <section class="how-to-help">
+    <section class="how-to-help" id="how_help">
         <div class="container">
             <h2>Как нам помочь</h2>
             <p>Есть много способов поддержать нашу работу. Выберите тот, который вам ближе:</p>
@@ -317,22 +244,6 @@
             <a href="#" class="btn">Хочу помочь</a>
         </div>
     </section>
-    
-    <footer>
-        <div class="container">
-            <div class="logo">Доброе сердце</div>
-            <p>Благотворительный фонд помощи нуждающимся</p>
-            
-            <ul class="footer-links">
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Проекты</a></li>
-                <li><a href="#">Отчеты</a></li>
-                <li><a href="#">Контакты</a></li>
-                <li><a href="#">Политика конфиденциальности</a></li>
-            </ul>
-            
-            <p>© 2023 Благотворительный фонд "Доброе сердце". Все права защищены.</p>
-        </div>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 </html>

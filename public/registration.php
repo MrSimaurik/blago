@@ -1,3 +1,6 @@
+<?php include "db.php";
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -130,16 +133,7 @@
         
         .auth-links a:hover {
             text-decoration: underline;
-        }
-        
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 3rem 0;
-            text-align: center;
-            margin-top: 3rem;
-        }
-        
+        }        
         @media (max-width: 768px) {
             .container {
                 width: 90%;
@@ -213,12 +207,6 @@
         </div>
     </main>
     
-    <footer>
-        <div class="container">
-            <div class="logo">Доброе сердце</div>
-            <p>Благотворительный фонд помощи нуждающимся</p>
-            <p>© 2023 Благотворительный фонд "Доброе сердце". Все права защищены.</p>
-        </div>
-    </footer>
+    <?php include "footer.php" ?>
 </body>
 </html>
