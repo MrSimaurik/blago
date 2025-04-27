@@ -114,16 +114,16 @@ session_start();
         }
     </style>
 </head>
-<?php include "header.php";?> 
-<body>    
+<body>  
+<?php include "header.php";?>   
     <main>
         <div class="container">
             <h1>Вход в личный кабинет</h1>
             
             <div class="auth-container">
-                <form action="#" method="post">
+                <form action="action.php?action=login" method="post">
                     <div class="form-group">
-                        <label for="login">Логин или email</label>
+                        <label for="login">Логин</label>
                         <input type="text" id="login" name="login" required>
                     </div>
                     
@@ -136,8 +136,7 @@ session_start();
                 </form>
                 
                 <div class="auth-links">
-                    <p>Еще нет аккаунта? <a href="register.html">Зарегистрируйтесь</a></p>
-                    <p><a href="#">Забыли пароль?</a></p>
+                    <p>Еще нет аккаунта? <a href="register.php">Зарегистрируйтесь</a></p>
                 </div>
             </div>
         </div>

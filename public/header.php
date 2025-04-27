@@ -70,9 +70,8 @@ session_start();
                     <li><a href="index.php#how_help">Как помочь</a></li>
                     <li><a href="#">Контакты</a></li>
                     <?php if (!empty($_SESSION['auth']) && $_SESSION['auth']==true) {echo '<li><a href="account.php">Акканут</a></li>';}
-                    else {echo '<li><a href="logout.php">Выйти</a></li>';}
+                    else {echo '<li><a href="login.php">Войти</a></li>';}
                     ?>
-                    
                 </ul>
             </nav>
         </div>

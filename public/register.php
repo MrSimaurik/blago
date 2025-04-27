@@ -151,21 +151,7 @@ session_start();
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">Доброе сердце</div>
-                <ul class="nav-links">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
-                    <li><a href="#">Проекты</a></li>
-                    <li><a href="#">Как помочь</a></li>
-                    <li><a href="#">Контакты</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
+<?php include "header.php";?> 
     <main>
         <div class="container">
             <h1>Регистрация</h1>
@@ -201,7 +187,7 @@ session_start();
                 </form>
                 
                 <div class="auth-links">
-                    <p>Уже есть аккаунт? <a href="login.html">Войдите</a></p>
+                    <p>Уже есть аккаунт? <a href="login.php">Войдите</a></p>
                 </div>
             </div>
         </div>
