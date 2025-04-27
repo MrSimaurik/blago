@@ -287,30 +287,25 @@ session_start();
                     </div>
                     
                     <h2>Редактирование профиля</h2>
-                    <form>
+                    <form action="action.php?action=update" method="POST">
+                        <div class="form-group">
+                            <label for="name">Логин</label>
+                            <input type="text" id="login" name="login" value="<?=$_SESSION['user_data']['login']?>" required>
+                        </div>
+                        
                         <div class="form-group">
                             <label for="name">Имя</label>
-                            <input type="text" id="name" name="name" value="Иван">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="surname">Фамилия</label>
-                            <input type="text" id="surname" name="surname" value="Петров">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" value="ivan@example.com">
+                            <input type="text" id="name" name="name" value="<?=$_SESSION['user_data']['name']?>" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone" value="+7 (900) 123-45-67">
+                            <input type="tel" id="phone" name="phone" value="<?=$_SESSION['user_data']['phone']?>" required>
                         </div>
                         
                         <div class="form-group">
                             <label for="password">Новый пароль</label>
-                            <input type="password" id="password" name="password" placeholder="Введите новый пароль">
+                            <input type="password" id="password" name="password" placeholder="<?=$_SESSION['user_data']['password']?>" required>
                         </div>
                         
                         <button type="submit" class="btn">Сохранить изменения</button>
@@ -328,34 +323,7 @@ session_start();
                             </div>
                             <div class="donation-status">Завершено</div>
                             <div class="donation-amount">5 000 ₽</div>
-                        </div>
-                        
-                        <div class="donation-item">
-                            <div class="donation-info">
-                                <div class="donation-project">Забота о старшем поколении</div>
-                                <div class="donation-date">12 апреля 2023</div>
-                            </div>
-                            <div class="donation-status">Завершено</div>
-                            <div class="donation-amount">3 000 ₽</div>
-                        </div>
-                        
-                        <div class="donation-item">
-                            <div class="donation-info">
-                                <div class="donation-project">Ночлежка</div>
-                                <div class="donation-date">5 марта 2023</div>
-                            </div>
-                            <div class="donation-status">Завершено</div>
-                            <div class="donation-amount">2 500 ₽</div>
-                        </div>
-                        
-                        <div class="donation-item">
-                            <div class="donation-info">
-                                <div class="donation-project">Помощь детям-сиротам</div>
-                                <div class="donation-date">15 февраля 2023</div>
-                            </div>
-                            <div class="donation-status">Завершено</div>
-                            <div class="donation-amount">4 000 ₽</div>
-                        </div>
+                        </div>      
                     </div>
                 </section>
             </div>

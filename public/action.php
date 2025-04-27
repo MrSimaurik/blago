@@ -23,5 +23,57 @@ switch ($_GET['action']) {
         }
         else {header('location:login.php?error');}
         break;
+
+        case 'register':
+        if (!empty($_POST['login']) && !empty($_POST['name']) && !empty($_POST['phone']) && !empty($_POST['password']))
+        {
+            $quary = $connect->prepare('INSERT INTO `users`(`id`, `login`, `name`, `phone`, `password`) VALUES (null,?,?,?,?)');
+
+            $user = $quary->execute([
+                $_POST['login'],
+                $_POST['name'],
+                $_POST['phone'],
+                $_POST['password']
+            ]);
+            if ($user) {
+                $login = $_POST['login'];
+                $stm = $connect->query("SELECT * FROM users WHERE login='$login'");
+                $result = $stm->fetch();
+                $_SESSION['user_data']=$result;
+            } else {
+                header('Location:register.php?register=false');
+            }
+        }else header('Location:register.php?register=false');
+            break;
+            case 'update':
+                if (!empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['name']) && !empty($_POST['phone']))
+                {   
+                    $id=$_SESSION['user_data']['id'];
+                    var_dump($_SESSION);
+
+                    $stm = $connect->prepare("UPDATE `users` SET
+                    `login` = :login, 
+                    `name` = :name, 
+                    `phone` = :phone, 
+                    `password` = :password WHERE id = :id");
+
+                    $stm->execute([
+                        ':login'=>$_POST['login'],
+                        ':name'=>$_POST['name'],
+                        ':phone'=>$_POST['phone'],
+                        ':password'=>$_POST['password'],
+                        ':id'=>$id
+                    ]);
+                    $user_update = $stm->fetch();  
+
+                    $stm = $connect->query("SELECT * FROM users WHERE id='$id'");
+                    $result = $stm->fetch();
+                    $_SESSION['user_data']=$result;
+
+                        header('location:account.php?update=true');   
+                }
+                else {header('location:account.php?update=false');}
+
+                break;
 }
 ?>

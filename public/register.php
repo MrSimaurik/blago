@@ -157,7 +157,7 @@ session_start();
             <h1>Регистрация</h1>
             
             <div class="auth-container">
-                <form action="#" method="post">
+                <form action="action.php?action=register" method="post">
                     <div class="form-group">
                         <label for="login">Логин</label>
                         <input type="text" id="login" name="login" required>
@@ -166,11 +166,6 @@ session_start();
                     <div class="form-group">
                         <label for="name">Имя</label>
                         <input type="text" id="name" name="name" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="surname">Фамилия</label>
-                        <input type="text" id="surname" name="surname" required>
                     </div>
                     
                     <div class="form-group">
