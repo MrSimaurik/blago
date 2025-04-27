@@ -268,9 +268,7 @@ session_start();
                 <ul class="account-menu">
                     <li><a href="#" class="active"><i class="fas fa-user-circle"></i> Профиль</a></li>
                     <li><a href="#"><i class="fas fa-heart"></i> Мои пожертвования</a></li>
-                    <li><a href="#"><i class="fas fa-cog"></i> Настройки</a></li>
-                    <li><a href="#"><i class="fas fa-bell"></i> Уведомления</a></li>
-                    <li><a href="#"><i class="fas fa-question-circle"></i> Помощь</a></li>
+                    <li><a href="logout.php"><i class="fas fa-door-open"></i> Выход</a></li>
                 </ul>
             </aside>
             
@@ -281,8 +279,7 @@ session_start();
                             <i class="fas fa-user"></i>
                         </div>
                         <div class="user-details">
-                            <h3>Иван Петров</h3>
-                            <p>Участник с 15 марта 2023</p>
+                            <h3><?=$_SESSION['user_data']['login']?></h3>
                         </div>
                     </div>
                     
