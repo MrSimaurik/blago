@@ -247,9 +247,9 @@
                 <ul class="nav-links">
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="#">О нас</a></li>
-                    <li><a href="projects.html" class="active">Проекты</a></li>
+                    <li><a href="projects.php" class="active">Проекты</a></li>
                     <li><a href="#">Как помочь</a></li>
-                    <li><a href="login.html">Личный кабинет</a></li>
+                    <li><a href="login.php">Личный кабинет</a></li>
                 </ul>
             </nav>
         </div>
