@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: MySQL-8.2
--- Время создания: Апр 27 2025 г., 21:31
+-- Время создания: Апр 29 2025 г., 01:49
 -- Версия сервера: 8.2.0
 -- Версия PHP: 8.1.28
 
@@ -44,8 +44,9 @@ CREATE TABLE `project` (
   `id` int NOT NULL,
   `tittle` varchar(32) NOT NULL,
   `target_amount` int NOT NULL,
-  `target_current` int NOT NULL,
-  `purpose_of_donation` varchar(32) NOT NULL
+  `target_current` int DEFAULT NULL,
+  `purpose_of_donation` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `img_path` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -59,9 +60,16 @@ CREATE TABLE `users` (
   `login` varchar(32) NOT NULL,
   `name` varchar(32) NOT NULL,
   `phone` varchar(32) NOT NULL,
-  `email` varchar(32) NOT NULL,
   `password` varchar(32) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Дамп данных таблицы `users`
+--
+
+INSERT INTO `users` (`id`, `login`, `name`, `phone`, `password`) VALUES
+(1, '111', '111', '111', '111'),
+(2, 'Legion', 'Алексей', '+7 (919) 725-88-05', '111');
 
 --
 -- Индексы сохранённых таблиц
@@ -107,7 +115,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
