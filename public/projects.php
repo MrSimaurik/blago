@@ -55,10 +55,11 @@ session_start();
         }
                                 
         .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            display: flex;
+            flex-wrap: wrap;
             gap: 2rem;
             padding: 1rem 0 3rem;
+            justify-content: center;
         }
         
         .project-card {
@@ -67,6 +68,12 @@ session_start();
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             transition: transform 0.3s;
+            
+            max-width: 360px;
+
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
         
         .project-card:hover {
@@ -81,6 +88,10 @@ session_start();
         
         .project-content {
             padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
         }
         
         .project-category {
@@ -142,6 +153,8 @@ session_start();
             transition: background-color 0.3s;
             width: 100%;
             text-align: center;
+
+            box-sizing: border-box;
         }
         
         .btn:hover {
@@ -174,26 +187,31 @@ session_start();
             </div>
                         
             <div class="projects-grid">
-                <!-- Проект 1 -->
+            <?php 
+                $stm=$connect->query('SELECT * FROM `project`');
+                $projects=$stm->fetchAll();?>
+                <?php foreach ($projects as $project) {?>
                 <div class="project-card">
-                    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Школа для каждого" class="project-img">
+                    <img src=".\images\Project\<?=$project['img_path']?>" alt="<?=$project['img_path']?>" class="project-img">
                     <div class="project-content">
-                        <h3 class="project-title">Школа для каждого</h3>
-                        <p class="project-description">Обеспечиваем детей из малоимущих семей школьными принадлежностями, формой и всем необходимым для обучения.</p>
+                        <div class="wrapper">
+                        <h3 class="project-title"><?=$project['tittle']?></h3>
+                        <p class="project-description"><?=$project['purpose_of_donation']?></p>
                         
                         <div class="project-progress">
                             <div class="progress-bar">
                                 <div class="progress-fill" style="width: 65%"></div>
                             </div>
                             <div class="progress-info">
-                                <span>Собрано: 325 000 ₽</span>
-                                <span>Цель: 500 000 ₽</span>
+                                <span><?=$project['target_current']?></span>
+                                <span><?=$project['target_amount']?></span>
+                            </div>
                             </div>
                         </div>
-                        
                         <a href="#" class="btn">Помочь проекту</a>
                     </div>
-                </div>               
+                </div> 
+                <?php }?>              
             </div>
         </div>
     </main>

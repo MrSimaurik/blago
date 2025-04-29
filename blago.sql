@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.2
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Хост: MySQL-8.0
--- Время создания: Апр 29 2025 г., 13:20
--- Версия сервера: 8.0.35
--- Версия PHP: 8.3.6
+-- Хост: MySQL-8.2
+-- Время создания: Апр 29 2025 г., 23:50
+-- Версия сервера: 8.2.0
+-- Версия PHP: 8.1.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -44,7 +44,7 @@ CREATE TABLE `project` (
   `id` int NOT NULL,
   `tittle` varchar(32) NOT NULL,
   `target_amount` int NOT NULL,
-  `target_current` int DEFAULT NULL,
+  `target_current` int DEFAULT '0',
   `purpose_of_donation` varchar(512) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `img_path` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -80,7 +80,6 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `name`, `phone`, `password`) VALUES
-(1, '111', '111', '111', '111'),
 (2, 'Legion', 'Алексей', '+7 (919) 725-88-05', '111'),
 (3, 'MrSimaurik', 'Evgenii', '+79778665020', '123123'),
 (4, 'MrSimaurik', 'Evgenii', '+79778665020', '123123');
@@ -129,7 +128,7 @@ ALTER TABLE `project`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц

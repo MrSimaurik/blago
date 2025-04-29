@@ -40,6 +40,8 @@ switch ($_GET['action']) {
                 $stm = $connect->query("SELECT * FROM users WHERE login='$login'");
                 $result = $stm->fetch();
                 $_SESSION['user_data']=$result;
+
+                header('location:account.php?auth=true');
             } else {
                 header('Location:register.php?register=false');
             }
