@@ -80,18 +80,20 @@ switch ($_GET['action']) {
                 case 'donate':
                     if (!empty($_POST['amount'])) {
                         $amount = intval($_POST['amount']);
+                        $currentDateRU = date('d.m.Y');
                         // Обновляем сумму собранных средств для проекта
                         $stm = $connect->prepare("UPDATE project SET target_current = target_current + ? WHERE id = ?");
                         $stm->execute([$amount, $_GET['project']]);
                         
                         // Сохраняем информацию о пожертвовании
-                        $stm = $connect->prepare("INSERT INTO donat (project_id, user_id, amount) 
-                                                VALUES (?,?,?)");
+                        $stm = $connect->prepare("INSERT INTO donat (project_id, user_id, amount,date) 
+                                                VALUES (?,?,?,?)");
                         
                         $stm->execute([
                             $_GET['project'],
                             $_SESSION['id_user'],
-                            $amount
+                            $amount,
+                            $currentDateRU
                         ]);
                         
                         // Перенаправляем на страницу благодарности

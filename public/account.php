@@ -236,6 +236,24 @@ session_start();
             padding: 3rem 0;
             text-align: center;
         }
+        .profile-section, .donations-section {
+        opacity: 0;
+        height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease, height 0.3s ease;
+        }
+
+        .profile-section.active, .donations-section.active {
+        opacity: 1;
+        height: auto;
+        display: block;
+        }
+
+        .account-menu a.active {
+        background-color: var(--light-bg);
+        color: var(--h1-color);
+        font-weight: bold;
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -265,15 +283,15 @@ session_start();
         
         <div class="account-container">
             <aside class="account-sidebar">
-                <ul class="account-menu">
-                    <li><a href="#" class="active"><i class="fas fa-user-circle"></i> Профиль</a></li>
-                    <li><a href="#"><i class="fas fa-heart"></i> Мои пожертвования</a></li>
-                    <li><a href="logout.php"><i class="fas fa-door-open"></i> Выход</a></li>
-                </ul>
+            <ul class="account-menu">
+            <li><a href="#profile" class="active" onclick="showSection('profile-section')"><i class="fas fa-user-circle"></i> Профиль</a></li>
+            <li><a href="#donations" onclick="showSection('donations-section')"><i class="fas fa-heart"></i> Мои пожертвования</a></li>
+            <li><a href="logout.php"><i class="fas fa-door-open"></i> Выход</a></li>
+            </ul>        
             </aside>
             
             <div class="account-content">
-                <section class="profile-section">
+            <section class="profile-section" id="profile-section">
                     <div class="user-info">
                         <div class="user-avatar">
                             <i class="fas fa-user"></i>
@@ -309,16 +327,16 @@ session_start();
                     </form>
                 </section>
                 
-                <section class="donations-section">
+                <section class="donations-section" id="donations-section">
                     <h2>Мои пожертвования</h2>
                     
+
                     <div class="donations-list">
                         <div class="donation-item">
                             <div class="donation-info">
                                 <div class="donation-project">Школа для каждого</div>
                                 <div class="donation-date">20 мая 2023</div>
                             </div>
-                            <div class="donation-status">Завершено</div>
                             <div class="donation-amount">5 000 ₽</div>
                         </div>      
                     </div>
@@ -326,6 +344,30 @@ session_start();
             </div>
         </div>
     </main>
+    <script>
+        function showSection(sectionId) {
+            // Скрываем все секции
+            document.querySelectorAll('.profile-section, .donations-section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Показываем выбранную секцию
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Обновляем активное состояние в меню
+            const menuItems = document.querySelectorAll('.account-menu a');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+
+        // Показываем профиль по умолчанию при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('profile-section').classList.add('active');
+        });
+        </script>
+
     
     <footer>
         <div class="container">

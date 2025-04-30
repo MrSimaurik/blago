@@ -197,9 +197,10 @@ function calculateProgressPercent($current, $target) {
             </div>
                         
             <div class="projects-grid">
-            <?php 
+                <?php 
                 $stm=$connect->query('SELECT * FROM `project`');
-                $projects=$stm->fetchAll();?>
+                $projects=$stm->fetchAll();
+                ?>
                 <?php foreach ($projects as $project) {?>
                 <div class="project-card">
                     <img src=".\images\Project\<?=$project['img_path']?>" alt="<?=$project['img_path']?>" class="project-img">
