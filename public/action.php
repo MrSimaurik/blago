@@ -77,5 +77,28 @@ switch ($_GET['action']) {
                 else {header('location:account.php?update=false');}
 
                 break;
+                case 'donate':
+                    if (!empty($_POST['amount'])) {
+                        $amount = intval($_POST['amount']);
+                        // Обновляем сумму собранных средств для проекта
+                        $stm = $connect->prepare("UPDATE project SET target_current = target_current + ? WHERE id = ?");
+                        $stm->execute([$amount, $_GET['project']]);
+                        
+                        // Сохраняем информацию о пожертвовании
+                        $stm = $connect->prepare("INSERT INTO donat (project_id, user_id, amount) 
+                                                VALUES (?,?,?)");
+                        
+                        $stm->execute([
+                            $_GET['project'],
+                            $_SESSION['id_user'],
+                            $amount
+                        ]);
+                        
+                        // Перенаправляем на страницу благодарности
+                        header('Location: projects.php?donate=true');
+                    } else {
+                        header('Location: projects.php?donate=fail');
+                    }
+                    break;            
 }
 ?>

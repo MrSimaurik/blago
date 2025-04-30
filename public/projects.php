@@ -1,5 +1,15 @@
 <?php include "db.php";
 session_start();
+
+function calculateProgressPercent($current, $target) {
+    if ($target <= 0) return 0; // Чтобы избежать деления на ноль
+    
+    $percent = ($current / $target) * 100;
+    
+    // Ограничиваем 100%, если собрано больше цели
+    return min(round($percent, 1), 100);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -200,15 +210,15 @@ session_start();
                         
                         <div class="project-progress">
                             <div class="progress-bar">
-                                <div class="progress-fill" style="width: 65%"></div>
-                            </div>
+                            <div class="progress-fill" 
+                                style="width: <?=calculateProgressPercent($project['target_current'], $project['target_amount']) ?>%"></div>                            </div>
                             <div class="progress-info">
-                                <span><?=$project['target_current']?></span>
-                                <span><?=$project['target_amount']?></span>
+                                <span>Собрано:<?=$project['target_current']?> руб.</span>
+                                <span>цель:<?=$project['target_amount']?> руб.</span>
                             </div>
                             </div>
                         </div>
-                        <a href="#" class="btn">Помочь проекту</a>
+                        <a href="donate.php?project=<?=$project['id']?>" class="btn">Помочь проекту</a>
                     </div>
                 </div> 
                 <?php }?>              
