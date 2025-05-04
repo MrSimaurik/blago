@@ -218,7 +218,7 @@ session_start();
             </div>
             
             <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2245.373789417037!2d37.61842331593095!3d55.75393098055245!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54a5a738fa419%3A0x7c347d506f52311!2z0JrRgNCw0YHQvdCw0Y8g0J_RgNC10YHQvdC40LbQsNGA0LjRjywg0JzQvtGB0LrQstCw!5e0!3m2!1sru!2sru!4v1620000000000!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2788.087304936958!2d37.640167077383886!3d55.767222973089574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b5350b00000001%3A0x9f229246a4453a54!2z0JDQuNCkLiDQlNC-0LHRgNC-0LUg0YHQtdGA0LTRhtC1!5e1!3m2!1sru!2sru!4v1746385937538!5m2!1sru!2sru" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             
             <h2>Форма обратной связи</h2>
