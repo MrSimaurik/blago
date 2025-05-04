@@ -3,6 +3,13 @@ include "db.php";
 session_start();
 
 switch ($_GET['action']) {
+    case 'contact':
+        // Здесь может быть код для отправки email или сохранения в базу данных
+        
+        // Перенаправляем обратно с параметром успешной отправки
+        header('Location: contacts.php?contact=success');
+        break;
+
     case 'login':
         if (!empty($_POST['login']) && !empty($_POST['password']))
         {

@@ -65,10 +65,10 @@ session_start();
                 <div class="logo">Доброе сердце</div>
                 <ul class="nav-links">
                     <li><a href="index.php">Главная</a></li>
-                    <li><a href="#">О нас</a></li>
+                    <li><a href="about.php">О нас</a></li>
                     <li><a href="projects.php">Проекты</a></li>
                     <li><a href="index.php#how_help">Как помочь</a></li>
-                    <li><a href="#">Контакты</a></li>
+                    <li><a href="contacts.php">Контакты</a></li>
                     <?php if (!empty($_SESSION['auth']) && $_SESSION['auth']==true) {echo '<li><a href="account.php">Акканут</a></li>';}
                     else {echo '<li><a href="login.php">Войти</a></li>';}
                     ?>
